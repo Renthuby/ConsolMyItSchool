@@ -1,0 +1,163 @@
+import java.util.Scanner;
+
+
+
+class Abracadabra {
+
+    static Scanner in = new Scanner(System.in);
+
+
+
+    static int randomInt(int a, int b) {
+
+        return (int) (Math.random() * (a - b + 1)) + b;
+
+    }
+
+
+
+    static void randomArray(int[] a, int min, int max) {
+
+        for (int i = 0; i < a.length; i++) {
+
+            a[i] = randomInt(min, max);
+
+        }
+
+    }
+
+
+
+    static void randomArray(int[][] a, int min, int max) {
+
+        for (int i = 0; i < a.length; i++) {
+
+            randomArray(a[i], min, max);
+
+        }
+
+
+
+    }
+
+
+
+    static void randomArray(int[][][] a, int min, int max) {
+
+        /*for (int i = 0; i < a.length; i++) {
+
+            for (int j = 0; j < a[i].length; j++) {
+
+                randomArray(a[i][j], min, max);
+
+            }
+
+        }*/
+
+        for (int i = 0; i < a.length; i++) {
+
+                randomArray(a[i], min, max);
+
+        }
+
+    }
+
+
+
+    static void writeArray(int[] a) {                //вывод одномерного массива
+
+        for (int ai: a) {
+
+            System.out.print(ai + " ");
+
+        }
+
+    }
+
+
+
+    static void writeArray(int[][] a) {              //вывод двухмерного массива
+
+        for (int i = 0; i < a.length; i++) {
+
+            for (int j = 0; j < a[i].length; j++) {
+
+                System.out.print(a[i][j] + "  ");
+
+            }
+
+            System.out.println();
+
+        }
+
+    }
+
+
+
+    static void writeArray(int[][][] a) {             //TODO вывод трехмерного массива (таблицей)
+
+        for (int i = 0; i < a.length; i++) {
+
+            for (int j = 0; j < a[i].length; j++) {
+
+                for (int k = 0; k < a.length; k++) {
+
+                    System.out.print(a[i][j][k] + " ");
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+
+
+
+
+
+    public static void main(String[] args) {
+
+        int N = in.nextInt();
+
+        int min = in.nextInt();
+
+        int max = in.nextInt();
+
+
+
+        int a[] = new int[N];  //создание массивов
+
+        int b[][] = new int[N][N];
+
+        int c[][][] = new int[N][N][N];
+
+
+
+        /*randomArray(a,min,max); // наполнение и вывод одномерного массива
+
+        writeArray(a);
+
+
+
+        randomArray(b,min,max); // наполнение и вывод двухмерного массива
+
+        writeArray(b);*/
+
+
+
+        randomArray(c,min,max); //TODO наполнение и вывод трехмерного массива
+
+        writeArray(c);
+
+
+
+        //int d = in.nextInt(); //Вывод номера символа и самого символа из таблицы ASCII
+
+        //System.out.printf("%d %c", d, d);
+
+    }
+
+}
